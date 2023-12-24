@@ -1,13 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  width: 375px;
+  height: 667px;
+  background-image: url("./images/day-time.jpg");
+  background-repeat: no-repeat;
+}
+
+/* header from App */
+.header {
+  padding: 32px 26px 0px 26px;
+  height: 97px;
+  width: 324px;
+}
+.header-content{
+  width: 290px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  /* color: #FFFFFF; */
+}
+.refresh-icon{
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.content-and-icon-flex{
+  display: flex;
+  gap: 16px;
+}
+.header-content-author{
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700px;
+  line-height: 22px;
+  /* color: #FFFFFF; */
+}
+
+/* footer Appp */
+.footer {
+  margin-top: 226px;
+}
+.icon-and-greeting {
+  padding: 32px 26px 0px 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  line-height: 25px;
+  font-weight: 400;
+}
+#current-time{
+  padding: 32px 26px 0px 26px;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  letter-spacing: -2.5px;
+  color: #FFFFFF;
+}
+.in-tbilisi-ge {
+  padding: 0px 26px 0px 26px;
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 28px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+}
+
+.just-padding{
+  padding: 61px 26px 52px 26px;
+}
+.more-less-button {
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFF;
+  align-items: center;
+  width: 115px;
+  height: 39px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 3.75px;
+  align-items: center;
+  color: #000000;
+    cursor: pointer;
+      transition: opacity 0.3s ease;
+      position: relative;
+      overflow: hidden;
+}
+.more-less-button:hover {
+  background-color: #dedede;
+}
+.more-less-text {
+  position: absolute;
+  top: 45;
+  left: 80;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.more-less-button.show-more .more-text,
+.more-less-button.show-less .less-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.more-less-button.show-more .less-text,
+.more-less-button.show-less .more-text {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+.more-information {
+  padding: 48px 26px 48px 26px;
+  background-color: #b7b7b7;
+  animation: slideUp 0.5s ease forwards;
+}
+
+.Closing {
+  background-color: #b7b7b7;
+  animation: slideDown 0.5s ease forwards;
+}
+
+.info-div {
+  display: flex;
+  justify-content: space-between;
+}
+.info-text1 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 28px;
+  letter-spacing: 2px;
+  color: #303030;
+}
+.info-text2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.2px;
+  color: #303030;
 }

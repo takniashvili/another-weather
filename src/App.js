@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import { useEffect, useState } from "react";
+import refreshIcon from "./images/icons/icon-refresh.png";
 
-function App() {
+export default function App() {
+  const [state, setState] = useState("");
+
+  const api = () => {
+    fetch("https://api.quotable.io/random?minLength=100&maxLength=140")
+      .then((response) => response.json())
+      .then((data) => setState(data))
+      .catch((error) => console.error("Error fetching quote:", error));
+  };
+
+  useEffect(() => {
+    api();
+  }, []);
+
+  function handleRefresh() {
+    api();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="header">
+      <div className="content-and-icon-flex">
+        <div className="header-content">
+          <p> "{state.content}" </p>
+        </div>
+        <div className="header-refresh-icon">
+          <img
+            className="refresh-icon"
+            src={refreshIcon}
+            alt="refresh-icon"
+            onClick={handleRefresh}
+          />
+        </div>
+      </div>
+      <div className="header-content-author">
+        <h3> {state.author} </h3>
+      </div>
     </div>
   );
 }
-
-export default App;
